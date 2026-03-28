@@ -1,13 +1,8 @@
 //! All tree-sitter grammars for tokensave.
 //!
-//! Tier: **large** — 28 languages (includes all medium-tier languages).
+//! Tier: **large** — 22+ languages (includes all medium-tier languages).
 //!
-//! Additional languages: Zig, Nix, Protobuf, Perl, Fortran,
-//! COBOL, QBasic, Batch, PowerShell, Pascal, VB.NET
-//!
-//! Note: Some niche languages (COBOL, QBasic, Batch, PowerShell, Pascal, VB.NET)
-//! do not yet have stable tree-sitter crates on crates.io and are listed as
-//! planned additions.
+//! Additional languages: Zig, Nix, Protobuf, Perl, Fortran
 
 pub use tokensave_medium_treesitters;
 pub use tree_sitter;
@@ -22,14 +17,14 @@ pub mod languages {
 }
 
 /// Returns (name, language_fn) pairs for all large-tier languages.
-pub fn all_languages() -> Vec<(&'static str, tree_sitter::Language)> {
+pub fn all_languages() -> Vec<(&'static str, tree_sitter_language::LanguageFn)> {
     let mut langs = tokensave_medium_treesitters::all_languages();
     langs.extend([
-        ("zig", tree_sitter_zig::LANGUAGE.into()),
-        ("nix", tree_sitter_nix::LANGUAGE.into()),
-        ("protobuf", tree_sitter_proto::LANGUAGE.into()),
-        ("perl", tree_sitter_perl::LANGUAGE.into()),
-        ("fortran", tree_sitter_fortran::LANGUAGE.into()),
+        ("zig", tree_sitter_zig::LANGUAGE),
+        ("nix", tree_sitter_nix::LANGUAGE),
+        ("protobuf", tree_sitter_proto::LANGUAGE),
+        ("perl", tree_sitter_perl::LANGUAGE),
+        ("fortran", tree_sitter_fortran::LANGUAGE),
     ]);
     langs
 }
