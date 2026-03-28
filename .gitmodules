@@ -1,0 +1,15 @@
+[submodule "grammars/tree-sitter-zig"]
+	path = grammars/tree-sitter-zig
+	url = https://github.com/tree-sitter-grammars/tree-sitter-zig.git
+[submodule "grammars/tree-sitter-nix"]
+	path = grammars/tree-sitter-nix
+	url = https://github.com/nix-community/tree-sitter-nix.git
+[submodule "grammars/tree-sitter-proto"]
+	path = grammars/tree-sitter-proto
+	url = https://github.com/mitchellh/tree-sitter-proto.git
+[submodule "grammars/tree-sitter-perl"]
+	path = grammars/tree-sitter-perl
+	url = https://github.com/tree-sitter-perl/tree-sitter-perl.git
+[submodule "grammars/tree-sitter-fortran"]
+	path = grammars/tree-sitter-fortran
+	url = https://github.com/stadelmanma/tree-sitter-fortran.git

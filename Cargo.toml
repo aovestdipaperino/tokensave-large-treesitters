@@ -1,0 +1,16 @@
+[package]
+name = "tokensave-large-treesitters"
+version = "0.1.0"
+authors = ["Enzo Lombardi <enzinol@gmail.com>"]
+edition = "2024"
+description = "All tree-sitter grammars for tokensave (28 languages)"
+license = "MIT"
+
+[dependencies]
+tokensave-medium-treesitters = { path = "../tokensave-medium-treesitters" }
+tree-sitter = "0.26"
+tree-sitter-zig = "0.1"
+tree-sitter-nix = "0.1"
+tree-sitter-proto = "0.1"
+tree-sitter-perl = "0.1"
+tree-sitter-fortran = "0.1"
