@@ -1,9 +1,9 @@
 [package]
 name = "tokensave-large-treesitters"
-version = "0.1.0"
+version = "0.3.2"
 authors = ["Enzo Lombardi <enzinol@gmail.com>"]
 edition = "2024"
-description = "All tree-sitter grammars for tokensave (28 languages)"
+description = "All tree-sitter grammars for tokensave (34 languages)"
 license = "MIT"
 repository = "https://github.com/aovestdipaperino/tokensave-large-treesitters"
 readme = "README.md"
@@ -11,11 +11,22 @@ readme = "README.md"
 [workspace]
 
 [dependencies]
-tokensave-medium-treesitters = { version = "0.1.0", path = "../tokensave-medium-treesitters" }
+tokensave-medium-treesitters = "0.2.0"
 tree-sitter = "0.26"
 tree-sitter-language = "0.1"
 tree-sitter-zig = "1.1"
 tree-sitter-nix = "0.3"
-tree-sitter-proto = "0.4"
 tree-sitter-perl = "1.1"
 tree-sitter-fortran = "0.5"
+tree-sitter-pascal = "0.10"
+tree-sitter-powershell = "0.26"
+tree-sitter-vb-dotnet = "0.1"
+tree-sitter-objc = "3.0"
+tree-sitter-batch = "0.3"
+tree-sitter-msbasic2 = "0.2"
+tree-sitter-gwbasic = "0.2"
+tree-sitter-qbasic = "0.2"
+tree-sitter-glsl = "0.2"
+
+[build-dependencies]
+cc = "1"
