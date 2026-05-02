@@ -1,10 +1,10 @@
 //! All tree-sitter grammars for tokensave.
 //!
-//! Tier: **large** — 34 languages (includes all medium-tier languages).
+//! Tier: **large** — 43 languages (includes all medium-tier languages).
 //!
 //! Additional languages: Zig, Nix, Protobuf, Perl, Fortran, Pascal,
 //! PowerShell, VB.NET, Objective-C, Batch, COBOL, MSBASIC2, GW-BASIC, QBasic,
-//! GLSL, Markdown
+//! GLSL, Markdown, R, SQL, Julia, Haskell, OCaml, Clojure, Erlang, Elixir, F#
 
 pub use tokensave_medium_treesitters;
 pub use tree_sitter;
@@ -12,17 +12,26 @@ pub use tree_sitter;
 pub mod languages {
     pub use tokensave_medium_treesitters::languages::*;
     pub use tree_sitter_batch;
+    pub use tree_sitter_clojure_orchard;
+    pub use tree_sitter_elixir;
+    pub use tree_sitter_erlang;
     pub use tree_sitter_fortran;
+    pub use tree_sitter_fsharp;
+    pub use tree_sitter_glsl;
     pub use tree_sitter_gwbasic;
+    pub use tree_sitter_haskell;
+    pub use tree_sitter_julia;
     pub use tree_sitter_msbasic2;
     pub use tree_sitter_nix;
     pub use tree_sitter_objc;
+    pub use tree_sitter_ocaml;
     pub use tree_sitter_pascal;
     pub use tree_sitter_perl;
     pub use tree_sitter_powershell;
     pub use tree_sitter_qbasic;
+    pub use tree_sitter_r;
+    pub use tree_sitter_sequel;
     pub use tree_sitter_vb_dotnet;
-    pub use tree_sitter_glsl;
     pub use tree_sitter_zig;
 }
 
@@ -88,6 +97,15 @@ pub fn all_languages() -> Vec<(&'static str, tree_sitter_language::LanguageFn)> 
         ("glsl", tree_sitter_glsl::LANGUAGE_GLSL),
         ("dockerfile", dockerfile::LANGUAGE),
         ("markdown", markdown::LANGUAGE),
+        ("r", tree_sitter_r::LANGUAGE),
+        ("sql", tree_sitter_sequel::LANGUAGE),
+        ("julia", tree_sitter_julia::LANGUAGE),
+        ("haskell", tree_sitter_haskell::LANGUAGE),
+        ("ocaml", tree_sitter_ocaml::LANGUAGE_OCAML),
+        ("clojure", tree_sitter_clojure_orchard::LANGUAGE),
+        ("erlang", tree_sitter_erlang::LANGUAGE),
+        ("elixir", tree_sitter_elixir::LANGUAGE),
+        ("fsharp", tree_sitter_fsharp::LANGUAGE_FSHARP),
     ]);
     langs
 }

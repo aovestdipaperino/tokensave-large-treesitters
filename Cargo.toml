@@ -1,9 +1,9 @@
 [package]
 name = "tokensave-large-treesitters"
-version = "0.3.2"
+version = "0.4.0"
 authors = ["Enzo Lombardi <enzinol@gmail.com>"]
 edition = "2024"
-description = "All tree-sitter grammars for tokensave (34 languages)"
+description = "All tree-sitter grammars for tokensave (43 languages)"
 license = "MIT"
 repository = "https://github.com/aovestdipaperino/tokensave-large-treesitters"
 readme = "README.md"
@@ -27,6 +27,15 @@ tree-sitter-msbasic2 = "0.2"
 tree-sitter-gwbasic = "0.2"
 tree-sitter-qbasic = "0.2"
 tree-sitter-glsl = "0.2"
+tree-sitter-r = "1.2"
+tree-sitter-sequel = "0.3"
+tree-sitter-julia = "0.23"
+tree-sitter-haskell = "0.23"
+tree-sitter-ocaml = "0.24"
+tree-sitter-clojure-orchard = "0.2"
+tree-sitter-erlang = "0.16"
+tree-sitter-elixir = "0.3"
+tree-sitter-fsharp = "0.3"
 
 [build-dependencies]
 cc = "1"
