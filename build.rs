@@ -45,4 +45,12 @@ fn main() {
         .compile("tree_sitter_cobol");
     println!("cargo::rerun-if-changed=vendor/tree-sitter-cobol/src/parser.c");
     println!("cargo::rerun-if-changed=vendor/tree-sitter-cobol/src/scanner.c");
+
+    let quint_dir = Path::new("vendor/tree-sitter-quint/src");
+    cc::Build::new()
+        .include(quint_dir)
+        .file(quint_dir.join("parser.c"))
+        .warnings(false)
+        .compile("tree_sitter_quint");
+    println!("cargo::rerun-if-changed=vendor/tree-sitter-quint/src/parser.c");
 }

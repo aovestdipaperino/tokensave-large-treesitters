@@ -1,15 +1,18 @@
 //! All tree-sitter grammars for tokensave.
 //!
-//! Tier: **large** — 43 languages (includes all medium-tier languages).
+//! Tier: **large** — 47 languages (includes all medium-tier languages).
 //!
 //! Additional languages: Zig, Nix, Protobuf, Perl, Fortran, Pascal,
 //! PowerShell, VB.NET, Objective-C, Batch, COBOL, MSBASIC2, GW-BASIC, QBasic,
-//! GLSL, Markdown, R, SQL, Julia, Haskell, OCaml, Clojure, Erlang, Elixir, F#
+//! GLSL, Markdown, R, SQL, Julia, Haskell, OCaml, Clojure, Erlang, Elixir,
+//! F#, Lean 4, Quint, Kotlin, TOML
 
 pub use tokensave_medium_treesitters;
 pub use tree_sitter;
 
 pub mod languages {
+    pub use arborium_kotlin;
+    pub use arborium_lean;
     pub use tokensave_medium_treesitters::languages::*;
     pub use tree_sitter_batch;
     pub use tree_sitter_clojure_orchard;
@@ -31,6 +34,7 @@ pub mod languages {
     pub use tree_sitter_qbasic;
     pub use tree_sitter_r;
     pub use tree_sitter_sequel;
+    pub use tree_sitter_toml_ng;
     pub use tree_sitter_vb_dotnet;
     pub use tree_sitter_zig;
 }
@@ -76,6 +80,33 @@ pub mod dockerfile {
         unsafe { tree_sitter_language::LanguageFn::from_raw(tree_sitter_dockerfile) };
 }
 
+/// Vendored tree-sitter-quint grammar (compiled from C source via build.rs).
+/// Source: zdavison/tree-sitter-quint @ 5155d17 — no Rust bindings published.
+pub mod quint {
+    unsafe extern "C" {
+        fn tree_sitter_quint() -> *const ();
+    }
+
+    pub const LANGUAGE: tree_sitter_language::LanguageFn =
+        unsafe { tree_sitter_language::LanguageFn::from_raw(tree_sitter_quint) };
+}
+
+/// `arborium-lean` exposes a `language()` fn (returning `tree_sitter::Language`)
+/// rather than a `LanguageFn` constant; re-export it under a typed module.
+pub mod lean {
+    pub use arborium_lean::language;
+}
+
+/// `arborium-kotlin` exposes a `language()` fn rather than a `LanguageFn`
+/// constant; re-export it under a typed module.
+pub mod kotlin {
+    pub use arborium_kotlin::language;
+}
+
+pub mod toml {
+    pub use tree_sitter_toml_ng::LANGUAGE;
+}
+
 /// Returns (name, language_fn) pairs for all large-tier languages.
 pub fn all_languages() -> Vec<(&'static str, tree_sitter_language::LanguageFn)> {
     let mut langs = tokensave_medium_treesitters::all_languages();
@@ -106,6 +137,10 @@ pub fn all_languages() -> Vec<(&'static str, tree_sitter_language::LanguageFn)> 
         ("erlang", tree_sitter_erlang::LANGUAGE),
         ("elixir", tree_sitter_elixir::LANGUAGE),
         ("fsharp", tree_sitter_fsharp::LANGUAGE_FSHARP),
+        ("lean", arborium_lean::language()),
+        ("kotlin", arborium_kotlin::language()),
+        ("toml", tree_sitter_toml_ng::LANGUAGE),
+        ("quint", quint::LANGUAGE),
     ]);
     langs
 }
