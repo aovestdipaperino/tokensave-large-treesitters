@@ -3,7 +3,7 @@ name = "tokensave-large-treesitters"
 version = "0.4.0"
 authors = ["Enzo Lombardi <enzinol@gmail.com>"]
 edition = "2024"
-description = "All tree-sitter grammars for tokensave (43 languages)"
+description = "All tree-sitter grammars for tokensave (47 languages)"
 license = "MIT"
 repository = "https://github.com/aovestdipaperino/tokensave-large-treesitters"
 readme = "README.md"
@@ -36,6 +36,9 @@ tree-sitter-clojure-orchard = "0.2"
 tree-sitter-erlang = "0.16"
 tree-sitter-elixir = "0.3"
 tree-sitter-fsharp = "0.3"
+tree-sitter-toml-ng = "0.7"
+arborium-lean = "2.16"
+arborium-kotlin = "2.16"
 
 [build-dependencies]
 cc = "1"
