@@ -44,9 +44,41 @@ struct Scanner {
     deserialize(NULL, 0);
   }
 
-  unsigned serialize(unsigned char *buffer) {
-    size_t i = 0;
+  // Per-element serialised size, matching the layouts in
+  // {block_context, block_delimiter, inline_delimiter}.cc.
+  static constexpr size_t LEXER_BYTES                       = 6;  // 2-byte col + 4-byte chr
+  static constexpr size_t MINIMIZED_INLINE_DELIMITER_BYTES  = 2;
+  static constexpr size_t BLOCK_DELIMITER_BYTES             = 3;
+  static constexpr size_t BLOCK_CONTEXT_BYTES               = 3;
+  static constexpr size_t LIST_HEADER_BYTES                 = 1;  // 1-byte size prefix
+  static constexpr size_t HAS_OPT_WSP_IND_BYTES             = 1;
 
+  unsigned serialize(unsigned char *buffer) {
+    // Pre-flight: compute the exact byte count this serialisation would
+    // consume. If it exceeds tree-sitter's 1024-byte buffer, return 0.
+    // Tree-sitter then calls `deserialize(NULL, 0)` on the next reload,
+    // which clears every field (per the empty-length path below). The
+    // parser loses incremental-parse state at this checkpoint and falls
+    // back to a fresh scan, but the process stays alive — far better than
+    // overrunning the buffer and clobbering the adjacent TSLanguage*
+    // pointer in tree-sitter's parser, which used to manifest as a
+    // segfault inside ts_parser__lex.
+    //
+    // Also note that the three list size-byte prefixes silently truncate
+    // past 255 entries (`buffer[size_i] = list_.size()` narrows from
+    // size_t to unsigned char). The 1024-byte budget bites long before
+    // any of them reach 255 in legitimate input, so the pre-flight check
+    // is the load-bearing safety; the trailing assert below stays as
+    // documentation but is a no-op under -DNDEBUG.
+    const size_t total =
+        LEXER_BYTES
+      + LIST_HEADER_BYTES + MINIMIZED_INLINE_DELIMITER_BYTES * min_inl_dlms_.size()
+      + LIST_HEADER_BYTES + BLOCK_DELIMITER_BYTES * blk_dlms_.size()
+      + LIST_HEADER_BYTES + BLOCK_CONTEXT_BYTES * blk_ctx_stk_.size()
+      + HAS_OPT_WSP_IND_BYTES;
+    if (total > TREE_SITTER_SERIALIZATION_BUFFER_SIZE) return 0;
+
+    size_t i = 0;
     i += lxr_.serialize(&buffer[i]);
     i += min_inl_dlms_.serialize(&buffer[i]);
     i += blk_dlms_.serialize(&buffer[i]);

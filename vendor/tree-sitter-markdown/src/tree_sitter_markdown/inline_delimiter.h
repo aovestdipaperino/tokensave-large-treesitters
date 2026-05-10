@@ -37,6 +37,7 @@ private:
   std::list<MinimizedInlineDelimiter> list_;
 public:
   bool empty() const;
+  size_t size() const;
   MinimizedInlineDelimiter &front();
 
   void pop_front();

@@ -116,6 +116,7 @@ TokenType BlockDelimiter::tkn_typ(LexedCharacter c) const {
 //==============================================================================
 
 bool BlockDelimiterList::empty() const { return list_.empty(); }
+size_t BlockDelimiterList::size() const { return list_.size(); }
 BlockDelimiter &BlockDelimiterList::front() { return list_.front(); }
 BlockDelimiter &BlockDelimiterList::back() { return list_.back(); }
 BlockDelimiterList::Iterator BlockDelimiterList::end() { return list_.end(); }

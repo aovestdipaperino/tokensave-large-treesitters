@@ -21,6 +21,7 @@ typedef uint16_t InlineDelimiterCustomData;
 
 #define NULL_PTR 0
 
+
 struct LexedPosition {
 private:
   LexedIndex idx_;

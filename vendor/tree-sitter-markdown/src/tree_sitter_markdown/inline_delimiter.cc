@@ -167,6 +167,7 @@ TokenType MinimizedInlineDelimiter::tkn_typ(LexedCharacter cur_chr, LexedCharact
 //==============================================================================
 
 bool MinimizedInlineDelimiterList::empty() const { return list_.empty(); }
+size_t MinimizedInlineDelimiterList::size() const { return list_.size(); }
 MinimizedInlineDelimiter &MinimizedInlineDelimiterList::front() { return list_.front(); }
 
 void MinimizedInlineDelimiterList::pop_front() { list_.pop_front(); }

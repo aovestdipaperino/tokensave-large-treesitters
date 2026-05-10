@@ -33,6 +33,7 @@ unsigned BlockContext::deserialize(const unsigned char *buffer) {
 }
 
 bool BlockContextStack::empty() const { return stk_.empty(); }
+size_t BlockContextStack::size() const { return stk_.size(); }
 BlockContext &BlockContextStack::back() { return stk_.back(); }
 const BlockContext &BlockContextStack::back() const { return stk_.back(); }
 BlockContextStack::ConstIterator BlockContextStack::begin() const { return stk_.begin(); }

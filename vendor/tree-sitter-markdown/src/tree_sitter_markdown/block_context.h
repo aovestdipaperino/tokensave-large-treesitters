@@ -40,6 +40,7 @@ private:
   std::vector<BlockContext> stk_;
 public:
   bool empty() const;
+  size_t size() const;
   BlockContext &back();
   const BlockContext &back() const;
   ConstIterator begin() const;

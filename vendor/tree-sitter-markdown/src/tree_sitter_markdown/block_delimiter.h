@@ -47,6 +47,7 @@ private:
   std::list<BlockDelimiter> list_;
 public:
   bool empty() const;
+  size_t size() const;
   BlockDelimiter &front();
   BlockDelimiter &back();
   Iterator end();
