@@ -59,7 +59,10 @@ pub mod cobol {
         unsafe { tree_sitter_language::LanguageFn::from_raw(tree_sitter_COBOL) };
 }
 
-/// Vendored tree-sitter-markdown grammar (compiled from C/C++ source via build.rs).
+/// Vendored tree-sitter-markdown grammars (block + inline) from
+/// `tree-sitter-grammars/tree-sitter-markdown`. The block parser produces
+/// `(document … (inline))` nodes; each `(inline)` byte range should be
+/// re-parsed with `inline::LANGUAGE` to extract links, emphasis, etc.
 pub mod markdown {
     unsafe extern "C" {
         fn tree_sitter_markdown() -> *const ();
@@ -67,6 +70,15 @@ pub mod markdown {
 
     pub const LANGUAGE: tree_sitter_language::LanguageFn =
         unsafe { tree_sitter_language::LanguageFn::from_raw(tree_sitter_markdown) };
+
+    pub mod inline {
+        unsafe extern "C" {
+            fn tree_sitter_markdown_inline() -> *const ();
+        }
+
+        pub const LANGUAGE: tree_sitter_language::LanguageFn =
+            unsafe { tree_sitter_language::LanguageFn::from_raw(tree_sitter_markdown_inline) };
+    }
 }
 
 /// tree-sitter-dockerfile exports a `language()` function, not a `LanguageFn`
