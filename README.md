@@ -5,7 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Rust](https://img.shields.io/badge/rust-1.85%2B-orange.svg)](https://www.rust-lang.org)
 
-All tree-sitter grammars for [tokensave](https://github.com/aovestdipaperino/tokensave). This is the **large** tier, bundling 22+ languages (includes all medium-tier languages).
+All tree-sitter grammars for [tokensave](https://github.com/aovestdipaperino/tokensave). This is the **large** tier, bundling 50 languages (includes all medium-tier languages).
 
 ## Languages
 
@@ -45,6 +45,11 @@ All tree-sitter grammars for [tokensave](https://github.com/aovestdipaperino/tok
 | Protobuf | [mitchellh/tree-sitter-proto](https://github.com/mitchellh/tree-sitter-proto) |
 | Perl | [tree-sitter-perl/tree-sitter-perl](https://github.com/tree-sitter-perl/tree-sitter-perl) |
 | Fortran | [stadelmanma/tree-sitter-fortran](https://github.com/stadelmanma/tree-sitter-fortran) |
+| Common Lisp | [theHamsta/tree-sitter-commonlisp](https://github.com/theHamsta/tree-sitter-commonlisp) |
+| Emacs Lisp | [Wilfred/tree-sitter-elisp](https://github.com/Wilfred/tree-sitter-elisp) |
+| Scheme | [6cdh/tree-sitter-scheme](https://github.com/6cdh/tree-sitter-scheme) |
+
+> Note: the table above lists only the originally documented large-tier additions plus the new Lisp-family grammars added in this release. The large tier also bundles many other languages (Markdown, R, SQL, Julia, Haskell, OCaml, Clojure, Erlang, Elixir, F#, Lean 4, Quint, Kotlin, TOML, GLSL, Pascal, PowerShell, VB.NET, Objective-C, Batch, COBOL, MSBASIC2, GW-BASIC, QBasic, Dockerfile). See [`src/lib.rs`](src/lib.rs) for the full list registered by `all_languages()`.
 
 ## Usage
 
@@ -60,4 +65,4 @@ for (name, language) in all_languages() {
 
 - **lite** ([tokensave-lite-treesitters](https://crates.io/crates/tokensave-lite-treesitters)) -- 7 languages
 - **medium** ([tokensave-medium-treesitters](https://crates.io/crates/tokensave-medium-treesitters)) -- 17 languages, includes lite
-- **large** (this crate) -- 22+ languages, includes medium
+- **large** (this crate) -- 50 languages, includes medium
