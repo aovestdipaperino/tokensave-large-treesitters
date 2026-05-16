@@ -5,7 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Rust](https://img.shields.io/badge/rust-1.85%2B-orange.svg)](https://www.rust-lang.org)
 
-All tree-sitter grammars for [tokensave](https://github.com/aovestdipaperino/tokensave). This is the **large** tier, bundling 22+ languages (includes all medium-tier languages).
+All tree-sitter grammars for [tokensave](https://github.com/aovestdipaperino/tokensave). This is the **large** tier, bundling 48 languages (includes all medium-tier languages).
 
 ## Languages
 
@@ -45,6 +45,7 @@ All tree-sitter grammars for [tokensave](https://github.com/aovestdipaperino/tok
 | Protobuf | [mitchellh/tree-sitter-proto](https://github.com/mitchellh/tree-sitter-proto) |
 | Perl | [tree-sitter-perl/tree-sitter-perl](https://github.com/tree-sitter-perl/tree-sitter-perl) |
 | Fortran | [stadelmanma/tree-sitter-fortran](https://github.com/stadelmanma/tree-sitter-fortran) |
+| AWK | [Beaglefoot/tree-sitter-awk](https://github.com/Beaglefoot/tree-sitter-awk) |
 
 ## Usage
 
@@ -60,4 +61,4 @@ for (name, language) in all_languages() {
 
 - **lite** ([tokensave-lite-treesitters](https://crates.io/crates/tokensave-lite-treesitters)) -- 7 languages
 - **medium** ([tokensave-medium-treesitters](https://crates.io/crates/tokensave-medium-treesitters)) -- 17 languages, includes lite
-- **large** (this crate) -- 22+ languages, includes medium
+- **large** (this crate) -- 48 languages, includes medium

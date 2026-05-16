@@ -59,4 +59,14 @@ fn main() {
         .warnings(false)
         .compile("tree_sitter_quint");
     println!("cargo::rerun-if-changed=vendor/tree-sitter-quint/src/parser.c");
+
+    let awk_dir = Path::new("vendor/tree-sitter-awk/src");
+    cc::Build::new()
+        .include(awk_dir)
+        .file(awk_dir.join("parser.c"))
+        .file(awk_dir.join("scanner.c"))
+        .warnings(false)
+        .compile("tree_sitter_awk");
+    println!("cargo::rerun-if-changed=vendor/tree-sitter-awk/src/parser.c");
+    println!("cargo::rerun-if-changed=vendor/tree-sitter-awk/src/scanner.c");
 }
