@@ -1,11 +1,11 @@
 //! All tree-sitter grammars for tokensave.
 //!
-//! Tier: **large** — 47 languages (includes all medium-tier languages).
+//! Tier: **large** — 50 languages (includes all medium-tier languages).
 //!
 //! Additional languages: Zig, Nix, Protobuf, Perl, Fortran, Pascal,
 //! PowerShell, VB.NET, Objective-C, Batch, COBOL, MSBASIC2, GW-BASIC, QBasic,
 //! GLSL, Markdown, R, SQL, Julia, Haskell, OCaml, Clojure, Erlang, Elixir,
-//! F#, Lean 4, Quint, Kotlin, TOML
+//! F#, Lean 4, Quint, Kotlin, TOML, Common Lisp, Emacs Lisp, Scheme
 
 pub use tokensave_medium_treesitters;
 pub use tree_sitter;
@@ -16,6 +16,8 @@ pub mod languages {
     pub use tokensave_medium_treesitters::languages::*;
     pub use tree_sitter_batch;
     pub use tree_sitter_clojure_orchard;
+    pub use tree_sitter_commonlisp;
+    pub use tree_sitter_elisp;
     pub use tree_sitter_elixir;
     pub use tree_sitter_erlang;
     pub use tree_sitter_fortran;
@@ -33,6 +35,7 @@ pub mod languages {
     pub use tree_sitter_powershell;
     pub use tree_sitter_qbasic;
     pub use tree_sitter_r;
+    pub use tree_sitter_scheme;
     pub use tree_sitter_sequel;
     pub use tree_sitter_toml_ng;
     pub use tree_sitter_vb_dotnet;
@@ -153,6 +156,9 @@ pub fn all_languages() -> Vec<(&'static str, tree_sitter_language::LanguageFn)> 
         ("kotlin", arborium_kotlin::language()),
         ("toml", tree_sitter_toml_ng::LANGUAGE),
         ("quint", quint::LANGUAGE),
+        ("commonlisp", tree_sitter_commonlisp::LANGUAGE_COMMONLISP),
+        ("elisp", tree_sitter_elisp::LANGUAGE),
+        ("scheme", tree_sitter_scheme::LANGUAGE),
     ]);
     langs
 }
