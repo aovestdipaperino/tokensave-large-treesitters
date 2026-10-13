@@ -1,11 +1,12 @@
 //! All tree-sitter grammars for tokensave.
 //!
-//! Tier: **large** — 50 languages (includes all medium-tier languages).
+//! Tier: **large** — 55 languages (includes all medium-tier languages).
 //!
 //! Additional languages: Zig, Nix, Protobuf, Perl, Fortran, Pascal,
 //! PowerShell, VB.NET, Objective-C, Batch, COBOL, MSBASIC2, GW-BASIC, QBasic,
 //! GLSL, Markdown, R, SQL, Julia, Haskell, OCaml, Clojure, Erlang, Elixir,
-//! F#, Lean 4, Quint, Kotlin, TOML, AWK, Wolfram
+//! F#, Lean 4, Quint, Kotlin, TOML, AWK, Wolfram, CUDA, HLSL, Common Lisp,
+//! Scheme, FlatBuffers
 
 pub use tokensave_medium_treesitters;
 pub use tree_sitter;
@@ -16,13 +17,17 @@ pub mod languages {
     pub use tokensave_medium_treesitters::languages::*;
     pub use tree_sitter_batch;
     pub use tree_sitter_clojure_orchard;
+    pub use tree_sitter_commonlisp;
+    pub use tree_sitter_cuda;
     pub use tree_sitter_elixir;
     pub use tree_sitter_erlang;
+    pub use tree_sitter_flatbuffers;
     pub use tree_sitter_fortran;
     pub use tree_sitter_fsharp;
     pub use tree_sitter_glsl;
     pub use tree_sitter_gwbasic;
     pub use tree_sitter_haskell;
+    pub use tree_sitter_hlsl;
     pub use tree_sitter_julia;
     pub use tree_sitter_msbasic2;
     pub use tree_sitter_nix;
@@ -33,6 +38,7 @@ pub mod languages {
     pub use tree_sitter_powershell;
     pub use tree_sitter_qbasic;
     pub use tree_sitter_r;
+    pub use tree_sitter_scheme;
     pub use tree_sitter_sequel;
     pub use tree_sitter_toml_ng;
     pub use tree_sitter_vb_dotnet;
@@ -177,6 +183,11 @@ pub fn all_languages() -> Vec<(&'static str, tree_sitter_language::LanguageFn)> 
         ("quint", quint::LANGUAGE),
         ("awk", awk::LANGUAGE),
         ("wolfram", wolfram::LANGUAGE),
+        ("cuda", tree_sitter_cuda::LANGUAGE),
+        ("hlsl", tree_sitter_hlsl::LANGUAGE_HLSL),
+        ("commonlisp", tree_sitter_commonlisp::LANGUAGE_COMMONLISP),
+        ("scheme", tree_sitter_scheme::LANGUAGE),
+        ("flatbuffers", tree_sitter_flatbuffers::LANGUAGE),
     ]);
     langs
 }
