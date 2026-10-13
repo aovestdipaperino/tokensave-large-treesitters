@@ -45,6 +45,15 @@ All tree-sitter grammars for [tokensave](https://github.com/aovestdipaperino/tok
 | Protobuf | [mitchellh/tree-sitter-proto](https://github.com/mitchellh/tree-sitter-proto) |
 | Perl | [tree-sitter-perl/tree-sitter-perl](https://github.com/tree-sitter-perl/tree-sitter-perl) |
 | Fortran | [stadelmanma/tree-sitter-fortran](https://github.com/stadelmanma/tree-sitter-fortran) |
+| AWK | [Beaglefoot/tree-sitter-awk](https://github.com/Beaglefoot/tree-sitter-awk) |
+| Wolfram | [WolframResearch/tree-sitter-wolfram](https://github.com/WolframResearch/tree-sitter-wolfram) |
+| GLSL | [theHamsta/tree-sitter-glsl](https://github.com/theHamsta/tree-sitter-glsl) |
+| CUDA | [tree-sitter-grammars/tree-sitter-cuda](https://github.com/tree-sitter-grammars/tree-sitter-cuda) |
+| HLSL | [theHamsta/tree-sitter-hlsl](https://github.com/theHamsta/tree-sitter-hlsl) |
+| OCaml | [tree-sitter/tree-sitter-ocaml](https://github.com/tree-sitter/tree-sitter-ocaml) |
+| Common Lisp | [theHamsta/tree-sitter-commonlisp](https://github.com/theHamsta/tree-sitter-commonlisp) |
+| Scheme | [6cdh/tree-sitter-scheme](https://github.com/6cdh/tree-sitter-scheme) |
+| FlatBuffers | [yuanchenxi95/tree-sitter-flatbuffers](https://github.com/yuanchenxi95/tree-sitter-flatbuffers) |
 
 ## Usage
 
