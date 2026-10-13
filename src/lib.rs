@@ -1,11 +1,11 @@
 //! All tree-sitter grammars for tokensave.
 //!
-//! Tier: **large** — 47 languages (includes all medium-tier languages).
+//! Tier: **large** — 50 languages (includes all medium-tier languages).
 //!
 //! Additional languages: Zig, Nix, Protobuf, Perl, Fortran, Pascal,
 //! PowerShell, VB.NET, Objective-C, Batch, COBOL, MSBASIC2, GW-BASIC, QBasic,
 //! GLSL, Markdown, R, SQL, Julia, Haskell, OCaml, Clojure, Erlang, Elixir,
-//! F#, Lean 4, Quint, Kotlin, TOML
+//! F#, Lean 4, Quint, Kotlin, TOML, AWK, Wolfram
 
 pub use tokensave_medium_treesitters;
 pub use tree_sitter;
@@ -92,6 +92,28 @@ pub mod dockerfile {
         unsafe { tree_sitter_language::LanguageFn::from_raw(tree_sitter_dockerfile) };
 }
 
+/// Vendored tree-sitter-awk grammar (compiled from C source via build.rs).
+/// Source: Beaglefoot/tree-sitter-awk @ v0.7.2 (34bbdc7) — no Rust bindings published.
+pub mod awk {
+    unsafe extern "C" {
+        fn tree_sitter_awk() -> *const ();
+    }
+
+    pub const LANGUAGE: tree_sitter_language::LanguageFn =
+        unsafe { tree_sitter_language::LanguageFn::from_raw(tree_sitter_awk) };
+}
+
+/// Vendored tree-sitter-wolfram grammar (compiled from C source via build.rs).
+/// Source: WolframResearch/tree-sitter-wolfram @ 15b3244 — no Rust bindings published.
+pub mod wolfram {
+    unsafe extern "C" {
+        fn tree_sitter_wolfram() -> *const ();
+    }
+
+    pub const LANGUAGE: tree_sitter_language::LanguageFn =
+        unsafe { tree_sitter_language::LanguageFn::from_raw(tree_sitter_wolfram) };
+}
+
 /// Vendored tree-sitter-quint grammar (compiled from C source via build.rs).
 /// Source: zdavison/tree-sitter-quint @ 5155d17 — no Rust bindings published.
 pub mod quint {
@@ -153,6 +175,8 @@ pub fn all_languages() -> Vec<(&'static str, tree_sitter_language::LanguageFn)> 
         ("kotlin", arborium_kotlin::language()),
         ("toml", tree_sitter_toml_ng::LANGUAGE),
         ("quint", quint::LANGUAGE),
+        ("awk", awk::LANGUAGE),
+        ("wolfram", wolfram::LANGUAGE),
     ]);
     langs
 }

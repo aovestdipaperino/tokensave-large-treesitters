@@ -45,6 +45,8 @@ All tree-sitter grammars for [tokensave](https://github.com/aovestdipaperino/tok
 | Protobuf | [mitchellh/tree-sitter-proto](https://github.com/mitchellh/tree-sitter-proto) |
 | Perl | [tree-sitter-perl/tree-sitter-perl](https://github.com/tree-sitter-perl/tree-sitter-perl) |
 | Fortran | [stadelmanma/tree-sitter-fortran](https://github.com/stadelmanma/tree-sitter-fortran) |
+| AWK | [Beaglefoot/tree-sitter-awk](https://github.com/Beaglefoot/tree-sitter-awk) |
+| Wolfram | [WolframResearch/tree-sitter-wolfram](https://github.com/WolframResearch/tree-sitter-wolfram) |
 
 ## Usage
 
