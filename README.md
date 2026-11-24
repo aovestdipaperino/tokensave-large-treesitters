@@ -1,5 +1,7 @@
 # tokensave-large-treesitters
 
+[![GitHub stars](https://img.shields.io/github/stars/aovestdipaperino/tokensave-large-treesitters?logo=github&color=brightgreen)](https://github.com/aovestdipaperino/tokensave-large-treesitters/stargazers)
+
 [![Crates.io](https://img.shields.io/crates/v/tokensave-large-treesitters.svg)](https://crates.io/crates/tokensave-large-treesitters)
 [![docs.rs](https://docs.rs/tokensave-large-treesitters/badge.svg)](https://docs.rs/tokensave-large-treesitters)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
